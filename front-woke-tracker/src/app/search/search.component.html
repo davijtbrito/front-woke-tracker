@@ -1,0 +1,24 @@
+<div>
+    <input type="text" [(ngModel)]="keyword" placeholder="Enter keyword" />
+    <button (click)="fetchData()">Search</button>
+  </div>
+  
+  <div *ngIf="gridData.length > 0">
+    <table>
+      <!-- Table headers remain the same as before -->
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Table body remains the same as before -->
+        <tr *ngFor="let item of gridData">
+          <td>{{ item.companyName }}</td>
+          <td>{{ item.country }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
