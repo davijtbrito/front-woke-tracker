@@ -1,15 +1,18 @@
+<!-- KEYWORD -->
 <div>
     <input type="text" [(ngModel)]="keyword" placeholder="Enter keyword" />
     <button (click)="fetchData()">Search</button>
   </div>
-  
-  <div *ngIf="gridData.length > 0">
-    <table>
+
+  <!-- DATA GRID -->
+  <div *ngIf="gridData.length > 0" class="table-container">
+    <table class="table">
       <!-- Table headers remain the same as before -->
       <thead>
         <tr>
           <th>Name</th>
           <th>Country</th>
+          <th>Tags</th>
         </tr>
       </thead>
       <tbody>
@@ -17,6 +20,7 @@
         <tr *ngFor="let item of gridData">
           <td>{{ item.companyName }}</td>
           <td>{{ item.country }}</td>
+          <td> </td>
         </tr>
       </tbody>
     </table>

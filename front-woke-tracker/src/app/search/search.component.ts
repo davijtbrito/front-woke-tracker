@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-
-
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -22,11 +21,12 @@ export class SearchComponent {
       this.keyword = params['keyword'] || '';
       this.fetchData();
     });
+
   }
 
   fetchData(): void {  
     
-    const endpointUrl = 'http://127.0.0.1:8081/company/find?keyword=' + this.keyword;
+    const endpointUrl = 'http://127.0.0.1:8080/company/find?keyword=' + this.keyword;
 
     this.http.get<any[]>(endpointUrl).subscribe(
       (data) => {        
