@@ -2,10 +2,10 @@
 <div>
     <input type="text" [(ngModel)]="searchKeyword" placeholder="Enter keyword">
     <button (click)="searchCompany()">Search Company</button>
-    <div *ngIf="companyResults">
+    <div *ngIf="searchResults">
       <h3>Company Search Results</h3>
       <ul>
-        <li *ngFor="let company of companyResults">{{ company.companyName }}</li>
+        <li *ngFor="let res of searchResults">Name: {{ res.name }} => {{ res.category }}</li>              
       </ul>
     </div>
     <div *ngIf="error">
