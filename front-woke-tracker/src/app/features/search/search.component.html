@@ -1,0 +1,15 @@
+<p>search works!</p>
+<div>
+    <input type="text" [(ngModel)]="searchKeyword" placeholder="Enter keyword">
+    <button (click)="searchCompany()">Search Company</button>
+    <div *ngIf="companyResults">
+      <h3>Company Search Results</h3>
+      <ul>
+        <li *ngFor="let company of companyResults">{{ company.companyName }}</li>
+      </ul>
+    </div>
+    <div *ngIf="error">
+      <p>Error occurred: {{ error }}</p>
+    </div>
+  </div>
+  
