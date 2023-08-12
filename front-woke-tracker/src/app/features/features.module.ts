@@ -5,6 +5,7 @@ import { FeaturesRoutingModule } from './features-routing.module';
 import { DummieComponent } from './dummie/dummie.component';
 import { SearchComponent } from './search/search.component';
 import { FormsModule } from '@angular/forms';
+import { AgGridModule } from 'ag-grid-angular';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
+    AgGridModule,
     FeaturesRoutingModule
   ]  
 })

@@ -6,6 +6,7 @@ import { InstitutionApi } from '../services/intitution-api.service';
 import { PublicFigureApi } from '../services/public-figure-api.model';
 import { Institution } from '../models/institution.model';
 import { PublicFigure } from '../models/public-figure.model';
+import { ColDef } from 'ag-grid-community';
 
 @Component({
   selector: 'app-search',
@@ -20,7 +21,12 @@ export class SearchComponent {
   companies: Company[] = [];
   institutions: Institution[] = [];
   publicFigures: PublicFigure[] = [];
-  searchResults: SearchResult[] = [];
+  searchResults: any[] = [];
+
+  public columnDefs: ColDef[] = [
+    { headerName:'Name', field: 'name'},    
+    { headerName:'Category', field: 'category' }
+  ];
 
   constructor(private companyApi: CompanyApi, private institutionApi: InstitutionApi, private pfApi: PublicFigureApi) {}
 
