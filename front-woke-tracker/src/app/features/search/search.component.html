@@ -8,6 +8,7 @@
       class="ag-theme-alpine"
       [columnDefs]="columnDefs"      
       [rowData]="searchResults"
+      (cellClicked)="onCellClicked($event)"
     ></ag-grid-angular>
   </div>
   

@@ -4,6 +4,7 @@ import { ColDef } from 'ag-grid-community';
 import { SearchApi } from '../services/search-api.service';
 import { AgGridAngular } from 'ag-grid-angular';
 
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -18,7 +19,7 @@ export class SearchComponent {
   searchResults: SearchResult[] = [];
 
   public columnDefs: ColDef[] = [
-    { headerName:'Name', field: 'name'},    
+    { headerName:'Name', field: 'name', cellRenderer: 'agAnimateShowChangeCellRenderer'},    
     { headerName:'Category', field: 'category' }
   ];
 
@@ -32,6 +33,15 @@ export class SearchComponent {
         this.agGrid.api.setRowData(this.searchResults); // Update ag-Grid data
         this.agGrid.api.refreshCells(); // Refresh the ag-Grid cells
       });  
+    }
+  }
+
+  onCellClicked(event: { column: { getColId: () => string; }; data: { id: number; }; }) {
+    if (event.column.getColId() === 'name') {
+      this.searchApi.getCompany(event.data.id).subscribe(data => {
+        // Open a popup or dialog to display the fetched data
+        alert(JSON.stringify(data));
+      });
     }
   }
 
