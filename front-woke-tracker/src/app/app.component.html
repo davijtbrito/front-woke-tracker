@@ -1,12 +1,17 @@
-<!-- app.component.html -->
-
-<h1>Angular Navigation Menu</h1>
-<nav>
-  <ul>
-    <li><a routerLink="/">Home</a></li>
-    <li><a routerLink="/about">About</a></li>
-    <li><a routerLink="/contact">Contact</a></li>
-  </ul>
+<nav class="nav-style">
+    <a routerLink="/">Home</a> | 
+    <a routerLink="/features/search">Search</a> |             
 </nav>
 
-<router-outlet></router-outlet>
+<div class="header">
+    <app-header></app-header>
+</div>
+
+<div class="content">
+    <router-outlet></router-outlet>
+</div>
+
+<div class="footer">
+    <app-footer></app-footer>
+</div>
+
