@@ -21,8 +21,7 @@ export class SearchComponent {
   searchResults: SearchResult[] = [];
 
   public columnDefs: ColDef[] = [
-    { headerName: 'Name', field: 'name', cellRenderer: 'agAnimateShowChangeCellRenderer' },
-    { headerName: 'Category', field: 'category' }
+    { headerName: 'Name', field: 'name' }    
   ];
 
   constructor(private searchApi: SearchApi, private dialog: MatDialog) { }
@@ -40,7 +39,7 @@ export class SearchComponent {
 
   onCellClicked(event: { column: { getColId: () => string; }; data: { id: number; category: string }; }) {
     if (event.column.getColId() === 'name') {      
-      
+
       if (event.data.category === SearchCategory.COMPANY) {
 
         this.searchApi.getCompany(event.data.id).subscribe(data => {
