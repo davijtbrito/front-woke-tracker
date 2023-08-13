@@ -23,7 +23,8 @@ export class SearchComponent  implements OnInit{
   searchResults: SearchResult[] = [];
 
   public columnDefs: ColDef[] = [
-    { field: 'name', width: this.calculateColumnWidth()}    
+    { field: 'name', width: this.calculateColumnWidth()},
+    { field: 'category'}    
   ];
 
   constructor(private searchApi: SearchApi, private dialog: MatDialog, private route: ActivatedRoute) { }
@@ -98,7 +99,7 @@ export class SearchComponent  implements OnInit{
   private calculateColumnWidth(): number {
     const screenWidth = window.innerWidth;
     // Calculate the desired percentage of the screen width
-    const percentage = 0.9; // Adjust this value as needed
+    const percentage = 0.7; // Adjust this value as needed
     return screenWidth * percentage;
   }
 }
