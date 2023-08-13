@@ -1,7 +1,9 @@
 
-<h2 mat-dialog-title>Data Details</h2>
+<h2 mat-dialog-title>Details</h2>
 <mat-dialog-content>
-  <pre>{{ data | json }}</pre>
+  <pre>Name: {{ data.detail.name }}</pre>
+  <pre>Country: {{ data.detail.country }}</pre>  
+  <pre>Tags: {{ data.values }}</pre>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button [mat-dialog-close]="true">Close</button>

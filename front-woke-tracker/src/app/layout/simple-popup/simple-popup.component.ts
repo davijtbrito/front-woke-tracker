@@ -1,5 +1,6 @@
 import { Component, Inject  } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { SearchDetail } from 'src/app/reference/models/search-detail.model';
 
 @Component({
   selector: 'app-simple-popup',
@@ -8,6 +9,6 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class SimplePopupComponent {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: SearchDetail) {}
 
 }
