@@ -1,1 +1,6 @@
-<app-search></app-search>
+<div class="parent">
+    <div class="centered-fix">
+        <input type="text" class="rounded wide-input" [(ngModel)]="searchKeyword" placeholder="What you wanna know" (keyup.enter)="navigateToComponent()">
+        <button class="rounded" (click)="navigateToComponent()">Search</button>   
+    </div>    
+</div>

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SearchResult } from '../models/search-result.model';
 import { ColDef } from 'ag-grid-community';
 import { SearchApi } from '../services/search-api.service';
@@ -6,14 +6,16 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { SimplePopupComponent } from 'src/app/layout/simple-popup/simple-popup.component';
 import { MatDialog } from '@angular/material/dialog';
 import { SearchCategory } from '../models/search-category.enum';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent {
-  searchKeyword!: string;
+export class SearchComponent  implements OnInit{
+  searchKeyword: string = '';
 
   @ViewChild('agGrid')
   agGrid!: AgGridAngular;
@@ -24,7 +26,21 @@ export class SearchComponent {
     { field: 'name', width: this.calculateColumnWidth()}    
   ];
 
-  constructor(private searchApi: SearchApi, private dialog: MatDialog) { }
+  constructor(private searchApi: SearchApi, private dialog: MatDialog, private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    const paramName = 'keyword';
+    const paramMap = this.route.snapshot.paramMap;
+
+    if (paramMap.has(paramName)) {
+      this.searchKeyword = paramMap.get(paramName)!;
+      this.search();
+
+    } else {
+      // Handle the case when the parameter is not provided
+      this.searchKeyword = ''; // Set a default value or handle as needed
+    }
+  }
 
   search() {
     this.searchResults = [];
