@@ -1,6 +1,11 @@
-<div class="parent">
-    <div class="centered-fix">
-        <input type="text" class="rounded wide-input" [(ngModel)]="searchKeyword" placeholder="What you wanna know" (keyup.enter)="navigateToComponent()">
-        <button class="rounded" (click)="navigateToComponent()">Search</button>   
-    </div>    
+<div class="homepage">
+    <header  class="header">
+        <div class="logo">Woke Tracker</div>
+
+        <div class="search-bar">
+            <input type="text" class="search-input" [(ngModel)]="searchKeyword" placeholder="What you wanna know" (keyup.enter)="navigateToComponent()">
+            <button class="search-button" (click)="navigateToComponent()">Search</button>   
+        </div>    
+    </header>    
+    
 </div>
