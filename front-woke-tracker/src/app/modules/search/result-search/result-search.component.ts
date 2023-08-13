@@ -1,20 +1,23 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SearchResult } from '../models/search-result.model';
+
 import { ColDef } from 'ag-grid-community';
-import { SearchApi } from '../services/search-api.service';
+
 import { AgGridAngular } from 'ag-grid-angular';
 import { SimplePopupComponent } from 'src/app/layout/simple-popup/simple-popup.component';
 import { MatDialog } from '@angular/material/dialog';
-import { SearchCategory } from '../models/search-category.enum';
-import { ActivatedRoute } from '@angular/router';
 
+import { ActivatedRoute } from '@angular/router';
+import { SearchResult } from '../../models/search-result.model';
+import { SearchApi } from '../../services/search-api.service';
+import { SearchCategory } from '../../models/search-category.enum';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  selector: 'app-result-search',
+  templateUrl: './result-search.component.html',
+  styleUrls: ['./result-search.component.scss']
 })
-export class SearchComponent  implements OnInit{
+export class ResultSearchComponent {
+
   searchKeyword: string = '';
 
   @ViewChild('agGrid')
