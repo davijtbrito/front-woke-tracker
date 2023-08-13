@@ -21,7 +21,7 @@ export class SearchComponent {
   searchResults: SearchResult[] = [];
 
   public columnDefs: ColDef[] = [
-    { headerName: 'Name', field: 'name' }    
+    { field: 'name', width: this.calculateColumnWidth()}    
   ];
 
   constructor(private searchApi: SearchApi, private dialog: MatDialog) { }
@@ -77,5 +77,12 @@ export class SearchComponent {
 
   private isNullOrBlank(str: string | null | undefined): boolean {
     return str === null || str === undefined || str.trim() === '';
+  }
+
+  private calculateColumnWidth(): number {
+    const screenWidth = window.innerWidth;
+    // Calculate the desired percentage of the screen width
+    const percentage = 0.9; // Adjust this value as needed
+    return screenWidth * percentage;
   }
 }

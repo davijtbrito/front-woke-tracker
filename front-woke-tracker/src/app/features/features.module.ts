@@ -17,6 +17,7 @@ import { AgGridModule } from 'ag-grid-angular';
     FormsModule,
     AgGridModule,
     FeaturesRoutingModule
-  ]  
+  ],
+  exports: [SearchComponent]  
 })
 export class FeaturesModule { }
