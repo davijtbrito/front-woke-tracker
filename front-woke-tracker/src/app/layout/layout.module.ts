@@ -6,7 +6,8 @@ import { SimplePopupComponent } from './simple-popup/simple-popup.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
-
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MatDialogModule,
     MatIconModule,
     MatChipsModule,
+    MatButtonModule,    
+    MatDividerModule,
     CommonModule
   ],
   exports: [HeaderComponent, FooterComponent, SimplePopupComponent]
