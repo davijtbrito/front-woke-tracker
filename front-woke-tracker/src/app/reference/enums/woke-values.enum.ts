@@ -1,7 +1,7 @@
 export enum WokeValues {
     ANTI_FAMILY, 
     GENDER_IDEOLOGY, 
-    RACISM, 
+    RACE_HUSTLER, 
     CHILDREN_SEXUALIZER, 
     FEMINISM, 
     TERRORISM,

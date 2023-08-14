@@ -1,0 +1,185 @@
+{
+    "searh-results": [
+        {
+          "detail": {
+            "id": 1,
+            "name": "ABC Company",
+            "netWorth": 1000000,
+            "country": "United States"
+          },
+          "values": ["ANTI_FAMILY", "GENDER_IDEOLOGY"]
+        },
+        {
+          "detail": {
+            "id": 2,
+            "name": "XYZ Institution",
+            "country": "Canada",
+            "sector": "Education"
+          },
+          "values": ["RACE_HUSTLER", "FEMINISM"]
+        },
+        {
+          "detail": {
+            "id": 3,
+            "name": "John Doe",
+            "country": "United Kingdom",
+            "birthday": "1990-05-15T00:00:00Z"
+          },
+          "values": ["TERRORISM", "HATE_GOD"]
+        },
+        {
+          "detail": {
+            "id": 4,
+            "name": "Jane Smith",
+            "country": "Australia",
+            "birthday": "1985-10-20T00:00:00Z"
+          },
+          "values": ["HATE_COUNTRY"]
+        },
+        {
+          "detail": {
+            "id": 5,
+            "name": "EFG Company",
+            "netWorth": 500000,
+            "country": "Germany"
+          },
+          "values": ["GENDER_IDEOLOGY"]
+        },
+        {
+          "detail": {
+            "id": 6,
+            "name": "University of ABC",
+            "country": "United States",
+            "sector": "Education"
+          },
+          "values": ["FEMINISM", "HATE_GOD"]
+        },
+        {
+          "detail": {
+            "id": 7,
+            "name": "Jane Doe",
+            "country": "Canada",
+            "birthday": "1988-03-10T00:00:00Z"
+          },
+          "values": ["RACE_HUSTLER", "TERRORISM"]
+        },
+        {
+          "detail": {
+            "id": 8,
+            "name": "Tech Innovators",
+            "country": "India",
+            "sector": "Technology"
+          },
+          "values": ["CHILDREN_SEXUALIZER"]
+        },
+        {
+          "detail": {
+            "id": 9,
+            "name": "Jack Johnson",
+            "country": "United States",
+            "birthday": "1975-12-02T00:00:00Z"
+          },
+          "values": ["HATE_COUNTRY", "GENDER_IDEOLOGY"]
+        },
+        {
+          "detail": {
+            "id": 10,
+            "name": "Global Connections",
+            "country": "Australia",
+            "sector": "Business"
+          },
+          "values": ["ANTI_FAMILY"]
+        },
+        {
+          "detail": {
+            "id": 11,
+            "name": "Social Awareness Institute",
+            "country": "United Kingdom",
+            "sector": "Non-profit"
+          },
+          "values": ["RACE_HUSTLER", "FEMINISM", "HATE_GOD"]
+        },
+        {
+          "detail": {
+            "id": 12,
+            "name": "Mark Williams",
+            "country": "Canada",
+            "birthday": "1982-08-25T00:00:00Z"
+          },
+          "values": ["TERRORISM"]
+        },
+        {
+          "detail": {
+            "id": 13,
+            "name": "Unity Corp",
+            "netWorth": 1500000,
+            "country": "United States"
+          },
+          "values": ["GENDER_IDEOLOGY"]
+        },
+        {
+          "detail": {
+            "id": 14,
+            "name": "Environmental Guardians",
+            "country": "Australia",
+            "sector": "Environmental"
+          },
+          "values": ["CHILDREN_SEXUALIZER", "HATE_COUNTRY"]
+        },
+        {
+          "detail": {
+            "id": 15,
+            "name": "Jane Williams",
+            "country": "United Kingdom",
+            "birthday": "1995-02-18T00:00:00Z"
+          },
+          "values": ["ANTI_FAMILY", "FEMINISM"]
+        },
+        {
+          "detail": {
+            "id": 16,
+            "name": "Innovate IT Solutions",
+            "country": "India",
+            "sector": "Technology"
+          },
+          "values": ["RACE_HUSTLER"]
+        },
+        {
+          "detail": {
+            "id": 17,
+            "name": "David Anderson",
+            "country": "Canada",
+            "birthday": "1978-06-12T00:00:00Z"
+          },
+          "values": ["TERRORISM", "HATE_GOD"]
+        },
+        {
+          "detail": {
+            "id": 18,
+            "name": "Global Education Foundation",
+            "country": "United States",
+            "sector": "Education"
+          },
+          "values": ["GENDER_IDEOLOGY", "HATE_COUNTRY"]
+        },
+        {
+          "detail": {
+            "id": 19,
+            "name": "Sports United",
+            "country": "Australia",
+            "sector": "Sports"
+          },
+          "values": ["ANTI_FAMILY", "CHILDREN_SEXUALIZER"]
+        },
+        {
+          "detail": {
+            "id": 20,
+            "name": "Jane Miller",
+            "country": "United Kingdom",
+            "birthday": "1980-11-05T00:00:00Z"
+          },
+          "values": ["FEMINISM"]
+        }
+      ]
+      
+  }
