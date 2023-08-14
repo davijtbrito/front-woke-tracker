@@ -1,0 +1,66 @@
+.homepage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+/* Style for the Google header */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Style for the Google logo */
+.logo {
+  font-family: "Product Sans", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #4285f4; /* Google's logo color */
+  cursor: pointer;
+  margin-bottom: 10px; /* Add margin to separate from search bar */
+  transition: color 0.3s ease-in-out;
+}
+
+/* Style for the search bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 10px; /* Add margin below the logo */
+}
+
+/* Hover style for the Google logo */
+.logo:hover {
+  color: #1967d2; /* Darker shade for hover effect */
+}
+
+/* Style for the search input */
+.search-input {
+  border: none;
+  padding: 10px 12px;  
+  width: 300px;
+  outline: none;
+}
+
+/* Style for the search button */
+.search-button {
+  background-color: #f8f9fa;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+  
+  
+  
+  

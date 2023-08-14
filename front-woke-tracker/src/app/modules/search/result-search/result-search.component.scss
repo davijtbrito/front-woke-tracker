@@ -1,0 +1,62 @@
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+  /* Style for the search button */
+  .search-button {
+    background-color: transparent;
+    border: 2px solid navy;
+    border-radius: 10%; /* Makes the button round */
+    color: navy;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 20px;
+  }
+  .search-button:hover {
+    background-color: navy;
+    color: white;
+  }
+
+  /* Styling for the input field */
+.search-input {  
+  width: 500px;  
+  padding: 10px;  
+  border-radius: 10px;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+/* Styling for the focused input field */
+input.search-input:focus {
+  outline: none;
+  border-color: deepskyblue;
+  background-color: aliceblue;
+}
+
+.logo {
+  font-family: "Product Sans", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #4285f4; 
+  cursor: pointer;
+  margin-bottom: 10px; 
+  padding: 10px 20px;
+  transition: color 0.3s ease-in-out;
+}
+
+.logo:hover {
+  color: #1967d2; /* Darker shade for hover effect */
+}
+
+.no-underline-link {
+  color: blue;
+  text-decoration: none; /* Removes the underline */
+}
+
+.no-underline-link:hover {
+  color: darkblue;
+  /* You can add other hover effects here if needed */
+}

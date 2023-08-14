@@ -1,6 +1,6 @@
 export interface Company{
     id: number;
-    companyName: string;
+    name: string;
     netWorth: number;
     country: string;
 }

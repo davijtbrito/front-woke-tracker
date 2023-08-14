@@ -1,19 +1,24 @@
-import { Component, ViewChild } from '@angular/core';
-import { SearchResult } from '../models/search-result.model';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { ColDef } from 'ag-grid-community';
-import { SearchApi } from '../services/search-api.service';
+
 import { AgGridAngular } from 'ag-grid-angular';
 import { SimplePopupComponent } from 'src/app/layout/simple-popup/simple-popup.component';
 import { MatDialog } from '@angular/material/dialog';
-import { SearchCategory } from '../models/search-category.enum';
+
+import { ActivatedRoute } from '@angular/router';
+import { SearchResult } from '../../models/search-result.model';
+import { SearchApi } from '../../services/search-api.service';
+import { SearchCategory } from '../../models/search-category.enum';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  selector: 'app-result-search',
+  templateUrl: './result-search.component.html',
+  styleUrls: ['./result-search.component.scss']
 })
-export class SearchComponent {
-  searchKeyword!: string;
+export class ResultSearchComponent {
+
+  searchKeyword: string = '';
 
   @ViewChild('agGrid')
   agGrid!: AgGridAngular;
@@ -21,10 +26,25 @@ export class SearchComponent {
   searchResults: SearchResult[] = [];
 
   public columnDefs: ColDef[] = [
-    { field: 'name', width: this.calculateColumnWidth()}    
+    { field: 'name', width: this.calculateColumnWidth()},
+    { field: 'category'}    
   ];
 
-  constructor(private searchApi: SearchApi, private dialog: MatDialog) { }
+  constructor(private searchApi: SearchApi, private dialog: MatDialog, private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    const paramName = 'keyword';
+    const paramMap = this.route.snapshot.paramMap;
+
+    if (paramMap.has(paramName)) {
+      this.searchKeyword = paramMap.get(paramName)!;
+      this.search();
+
+    } else {
+      // Handle the case when the parameter is not provided
+      this.searchKeyword = ''; // Set a default value or handle as needed
+    }
+  }
 
   search() {
     this.searchResults = [];
@@ -82,7 +102,7 @@ export class SearchComponent {
   private calculateColumnWidth(): number {
     const screenWidth = window.innerWidth;
     // Calculate the desired percentage of the screen width
-    const percentage = 0.9; // Adjust this value as needed
+    const percentage = 0.7; // Adjust this value as needed
     return screenWidth * percentage;
   }
 }

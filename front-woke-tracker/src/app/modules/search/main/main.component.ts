@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-main',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.scss']
 })
-export class HomeComponent implements OnInit{
+export class MainComponent {
+
 
   searchKeyword!: string;  
 
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit{
 
   navigateToComponent() {    
     if (!this.isNullOrBlank(this.searchKeyword)){
-      this.router.navigate(['features/search/' + this.searchKeyword]);
+      this.router.navigate(['search/result-search/' + this.searchKeyword]);
     }    
   }
 

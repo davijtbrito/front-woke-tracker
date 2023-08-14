@@ -1,20 +1,14 @@
-.nav-style {
-    background-color: #b3bec0;
-    color: #fff;
+.nav-style {        
     padding: 10px;
     text-align: left;
   }
 
-  .header {
-    background-color: #333;
-    color: #fff;
+  .header {    
     padding: 10px;
     text-align: center;
   }
 
-  .footer {
-    background-color: #333;
-    color: #fff;
+  .footer {        
     text-align: center;
     padding: 10px;
     position: fixed;
@@ -24,6 +18,5 @@
 
   .content {
     flex: 1; /* This makes the content div expand to fill the available space */
-    padding: 20px;
-    background-color: aqua;
+    padding: 20px;    
   }
