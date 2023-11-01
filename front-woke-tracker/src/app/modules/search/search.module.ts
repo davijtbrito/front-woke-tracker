@@ -7,12 +7,15 @@ import { MainComponent } from './main/main.component';
 import { FormsModule } from '@angular/forms';
 import { ResultSearchComponent } from './result-search/result-search.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { SearchCategoryPipe } from 'src/app/reference/pipes/search-category.pipe';
 
 
 @NgModule({
   declarations: [
     SearchComponent,    
-    MainComponent, ResultSearchComponent
+    MainComponent, 
+    ResultSearchComponent,
+    SearchCategoryPipe
   ],
   imports: [
     CommonModule,

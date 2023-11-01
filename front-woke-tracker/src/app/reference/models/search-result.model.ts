@@ -1,4 +1,4 @@
-import { SearchCategory } from "./search-category.enum";
+import { SearchCategory } from "../enums/search-category.enum";
 
 export interface SearchResult{
     id: number;
