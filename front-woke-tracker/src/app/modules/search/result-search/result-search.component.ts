@@ -1,19 +1,26 @@
-import { Component, ViewChild } from '@angular/core';
-import { SearchResult } from '../models/search-result.model';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { ColDef } from 'ag-grid-community';
-import { SearchApi } from '../services/search-api.service';
+
 import { AgGridAngular } from 'ag-grid-angular';
 import { SimplePopupComponent } from 'src/app/layout/simple-popup/simple-popup.component';
 import { MatDialog } from '@angular/material/dialog';
-import { SearchCategory } from '../models/search-category.enum';
+
+import { ActivatedRoute } from '@angular/router';
+import { SearchResult } from '../../../reference/models/search-result.model';
+import { SearchApi } from '../../services/search-api.service';
+import { SearchCategory } from '../../../reference/enums/search-category.enum';
+import { SearchCategoryPipe } from 'src/app/reference/pipes/search-category.pipe';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  selector: 'app-result-search',
+  templateUrl: './result-search.component.html',
+  styleUrls: ['./result-search.component.scss'],
+  providers: [SearchCategoryPipe]
 })
-export class SearchComponent {
-  searchKeyword!: string;
+export class ResultSearchComponent {
+
+  searchKeyword: string = '';
 
   @ViewChild('agGrid')
   agGrid!: AgGridAngular;
@@ -21,10 +28,28 @@ export class SearchComponent {
   searchResults: SearchResult[] = [];
 
   public columnDefs: ColDef[] = [
-    { headerName: 'Name', field: 'name' }    
+    { field: 'name', width: this.calculateColumnWidth()},
+    { field: 'category', valueFormatter: (params) => this.categoryPipe.transform(params.value)}    
   ];
 
-  constructor(private searchApi: SearchApi, private dialog: MatDialog) { }
+  constructor(private searchApi: SearchApi, 
+    private dialog: MatDialog, 
+    private route: ActivatedRoute,
+    private categoryPipe: SearchCategoryPipe) { }
+
+  ngOnInit(): void {
+    const paramName = 'keyword';
+    const paramMap = this.route.snapshot.paramMap;
+
+    if (paramMap.has(paramName)) {
+      this.searchKeyword = paramMap.get(paramName)!;
+      this.search();
+
+    } else {
+      // Handle the case when the parameter is not provided
+      this.searchKeyword = ''; // Set a default value or handle as needed
+    }
+  }
 
   search() {
     this.searchResults = [];
@@ -77,5 +102,12 @@ export class SearchComponent {
 
   private isNullOrBlank(str: string | null | undefined): boolean {
     return str === null || str === undefined || str.trim() === '';
+  }
+
+  private calculateColumnWidth(): number {
+    const screenWidth = window.innerWidth;
+    // Calculate the desired percentage of the screen width
+    const percentage = 0.7; // Adjust this value as needed
+    return screenWidth * percentage;
   }
 }

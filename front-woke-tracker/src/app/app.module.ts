@@ -7,21 +7,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { LayoutModule } from './layout/layout.module';
-import { FeaturesModule } from './features/features.module';
-import { FeaturesRoutingModule } from './features/features-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SearchModule } from './modules/search/search.module';
+import { SearchRoutingModule } from './modules/search/search-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
-    FeaturesModule,
-    FeaturesRoutingModule,
+    SearchModule,
+    SearchRoutingModule,    
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
