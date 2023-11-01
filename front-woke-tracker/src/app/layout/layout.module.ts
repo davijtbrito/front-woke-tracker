@@ -8,12 +8,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import { WokeValuesPipe } from '../reference/pipes/woke-values.pipe';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,    
-    SimplePopupComponent
+    SimplePopupComponent,
+    WokeValuesPipe
   ],
   imports: [
     MatDialogModule,

@@ -14,7 +14,7 @@ import { SearchRoutingModule } from './modules/search/search-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent    
   ],
   imports: [
     BrowserModule,

@@ -7,14 +7,16 @@ import { SimplePopupComponent } from 'src/app/layout/simple-popup/simple-popup.c
 import { MatDialog } from '@angular/material/dialog';
 
 import { ActivatedRoute } from '@angular/router';
-import { SearchResult } from '../../models/search-result.model';
+import { SearchResult } from '../../../reference/models/search-result.model';
 import { SearchApi } from '../../services/search-api.service';
-import { SearchCategory } from '../../models/search-category.enum';
+import { SearchCategory } from '../../../reference/enums/search-category.enum';
+import { SearchCategoryPipe } from 'src/app/reference/pipes/search-category.pipe';
 
 @Component({
   selector: 'app-result-search',
   templateUrl: './result-search.component.html',
-  styleUrls: ['./result-search.component.scss']
+  styleUrls: ['./result-search.component.scss'],
+  providers: [SearchCategoryPipe]
 })
 export class ResultSearchComponent {
 
@@ -27,10 +29,13 @@ export class ResultSearchComponent {
 
   public columnDefs: ColDef[] = [
     { field: 'name', width: this.calculateColumnWidth()},
-    { field: 'category'}    
+    { field: 'category', valueFormatter: (params) => this.categoryPipe.transform(params.value)}    
   ];
 
-  constructor(private searchApi: SearchApi, private dialog: MatDialog, private route: ActivatedRoute) { }
+  constructor(private searchApi: SearchApi, 
+    private dialog: MatDialog, 
+    private route: ActivatedRoute,
+    private categoryPipe: SearchCategoryPipe) { }
 
   ngOnInit(): void {
     const paramName = 'keyword';

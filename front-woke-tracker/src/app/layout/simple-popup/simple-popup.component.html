@@ -4,7 +4,7 @@
   <pre>Country: {{ data.detail.country }}</pre>  
   <pre>Tags</pre>
   <ul>
-    <li *ngFor="let value of data.values">{{ value }}</li>
+    <li *ngFor="let value of data.values">{{ value | wokeValues }}</li>
   </ul>  
 
   <div *ngIf="data.connections.length > 0">

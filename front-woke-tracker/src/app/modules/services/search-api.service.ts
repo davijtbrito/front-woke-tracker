@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment'; 
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { SearchResult } from '../models/search-result.model';
+import { SearchResult } from '../../reference/models/search-result.model';
 import { Company } from '../../reference/models/company.model';
 import { Institution } from '../../reference/models/institution.model';
 import { PublicFigure } from '../../reference/models/public-figure.model';
