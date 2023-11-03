@@ -10,7 +10,9 @@
   <div *ngIf="data.connections.length > 0">
     <pre>Connections:</pre>
     <ul>
-      <li *ngFor="let connection of data.connections">{{ connection.name }}</li>
+      <li *ngFor="let connection of data.connections">{{ connection.name }}
+        <a href="/news-related">See more...</a>
+      </li>
     </ul>  
   </div>      
 

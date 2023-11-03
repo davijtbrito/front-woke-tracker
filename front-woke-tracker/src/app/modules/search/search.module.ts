@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { ResultSearchComponent } from './result-search/result-search.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { SearchCategoryPipe } from 'src/app/reference/pipes/search-category.pipe';
+import { NewsRelatedComponent } from './news-related/news-related.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SearchCategoryPipe } from 'src/app/reference/pipes/search-category.pipe
     SearchComponent,    
     MainComponent, 
     ResultSearchComponent,
-    SearchCategoryPipe
+    SearchCategoryPipe,
+    NewsRelatedComponent
   ],
   imports: [
     CommonModule,

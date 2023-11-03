@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ColDef } from 'ag-grid-community';
 
 import { AgGridAngular } from 'ag-grid-angular';
-import { SimplePopupComponent } from 'src/app/layout/simple-popup/simple-popup.component';
+import { SimplePopupComponent } from 'src/app/modules/search/simple-popup/simple-popup.component';
 import { MatDialog } from '@angular/material/dialog';
 
 import { ActivatedRoute } from '@angular/router';
