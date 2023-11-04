@@ -11,17 +11,13 @@ import { SharedDataService } from './shared-data.service';
 export class NewsRelatedService {
   private apiUrl = environment.apiBaseUrl;    
 
-  constructor(private http: HttpClient,
-    private sharedData: SharedDataService) {}
+  constructor(private http: HttpClient) {}
 
-  getNewsRelated(): Observable<string[]>{
+  getNewsRelated(sharedData: SharedDataService): Observable<string[]>{
     const endpoint = environment.apiBaseUrl + '/news/news-related';
     
-    const entity: GenericEntityDto = this.sharedData.newsRelatedEntity;
-    const connection: GenericEntityDto = this.sharedData.newsRelatedConnection;   
-    
-    console.log("entity: " + JSON.stringify(entity));
-    console.log("connection: " + JSON.stringify(connection));
+    const entity: GenericEntityDto = sharedData.newsRelatedEntity;
+    const connection: GenericEntityDto = sharedData.newsRelatedConnection;       
 
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const body = JSON.stringify( { entity, connection } );    

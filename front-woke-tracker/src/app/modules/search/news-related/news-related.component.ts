@@ -17,8 +17,7 @@ export class NewsRelatedComponent {
 
   constructor(private newsApi: NewsRelatedService,
     private sharedApi: SharedDataService){
-      this.data = this.sharedApi.searchDetail;
-      console.log("this.data: " + JSON.stringify(this.data));
+      this.data = this.sharedApi.searchDetail;      
   }
 
   listNewsRelated(connection: GenericEntityDto){
@@ -29,7 +28,7 @@ export class NewsRelatedComponent {
     };
 
     this.sharedApi.newsRelatedConnection = connection;
-    this.newsApi.getNewsRelated().subscribe((response) => {      
+    this.newsApi.getNewsRelated(this.sharedApi).subscribe((response) => {      
       this.safeUrls = response;
     });
   }
