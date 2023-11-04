@@ -10,7 +10,6 @@ import { AgGridModule } from 'ag-grid-angular';
 import { SearchCategoryPipe } from 'src/app/reference/pipes/search-category.pipe';
 import { NewsRelatedComponent } from './news-related/news-related.component';
 
-
 @NgModule({
   declarations: [
     SearchComponent,    
@@ -25,7 +24,7 @@ import { NewsRelatedComponent } from './news-related/news-related.component';
     AgGridModule,
     FormsModule,
     SearchRoutingModule
-  ],
+  ],  
   exports: [SearchComponent]
 })
 export class SearchModule { }

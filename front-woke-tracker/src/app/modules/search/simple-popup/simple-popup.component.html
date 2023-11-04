@@ -11,11 +11,10 @@
     <pre>Connections:</pre>
     <ul>
       <li *ngFor="let connection of data.connections">{{ connection.name }}
-        <a href="/news-related">See more...</a>
+        <a (click)="onClickConnection(connection)">See more...</a>
       </li>
     </ul>  
-  </div>      
-
+  </div>
 
 </mat-dialog-content>
 <mat-dialog-actions>

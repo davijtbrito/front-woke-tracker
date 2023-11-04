@@ -8,7 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { ActivatedRoute } from '@angular/router';
 import { SearchResult } from '../../../reference/models/search-result.model';
-import { SearchApi } from '../../services/search-api.service';
+import { SearchApiService } from '../../../services/search-api.service';
 import { SearchCategory } from '../../../reference/enums/search-category.enum';
 import { SearchCategoryPipe } from 'src/app/reference/pipes/search-category.pipe';
 
@@ -32,7 +32,7 @@ export class ResultSearchComponent {
     { field: 'category', valueFormatter: (params) => this.categoryPipe.transform(params.value)}    
   ];
 
-  constructor(private searchApi: SearchApi, 
+  constructor(private searchApi: SearchApiService, 
     private dialog: MatDialog, 
     private route: ActivatedRoute,
     private categoryPipe: SearchCategoryPipe) { }
@@ -88,8 +88,8 @@ export class ResultSearchComponent {
         });
       }else if (event.data.category === SearchCategory.PUBLIC_FIGURE) {
 
-        this.searchApi.getPublicFigure(event.data.id).subscribe(data => {
-
+        this.searchApi.getPublicFigure(event.data.id).subscribe(data => {          
+          
           const dialogRef = this.dialog.open(SimplePopupComponent, {
             width: '400px', // Set the desired width
             data: data
