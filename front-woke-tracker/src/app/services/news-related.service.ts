@@ -18,13 +18,11 @@ export class NewsRelatedService {
     const endpoint = environment.apiBaseUrl + '/news/news-related';
     
     const entity: GenericEntityDto = this.sharedData.newsRelatedEntity;
-    const connection: GenericEntityDto = this.sharedData.newsRelatedConnection;
+    const connection: GenericEntityDto = this.sharedData.newsRelatedConnection;    
 
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const body = JSON.stringify( { entity, connection } );    
 
-    return this.http.post<string[]>(endpoint, body, { headers });
-    
-    
+    return this.http.post<string[]>(endpoint, body, { headers });    
   }
 }

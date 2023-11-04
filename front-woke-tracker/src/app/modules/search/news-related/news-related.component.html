@@ -1,6 +1,18 @@
-<p>News Related</p>
-
+<pre>Country: {{ data.detail.country }}</pre>  
+<pre>Tags</pre>
 <ul>
+  <li *ngFor="let value of data.values">{{ value | wokeValues }}</li>
+</ul>  
+
+<div *ngIf="data.connections.length > 0">
+  <pre>Connections:</pre>
+  <ul>
+    <li *ngFor="let connection of data.connections">{{ connection.name }}      
+    </li>
+  </ul>  
+</div>
+
+  <ul>
     <li *ngFor="let link of safeUrls">
       <a [href]="link" target="_blank">{{ link }}</a>
     </li>

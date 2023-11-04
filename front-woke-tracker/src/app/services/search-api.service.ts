@@ -21,18 +21,18 @@ export class SearchApiService {
     return this.http.get<SearchResult[]>(endpoint);
   }
 
-  getCompany(id: number): Observable<Company[]> {
+  getCompany(id: number): Observable<any> {
     const endpoint = this.apiUrl + '/search/getCompany?id=' + id;
     return this.http.get<Company[]>(endpoint);
   }
 
-  getInstitution(id: number): Observable<Institution[]> {
+  getInstitution(id: number): Observable<any> {
     const endpoint = this.apiUrl + '/search/getInstitution?id=' + id;
     return this.http.get<Institution[]>(endpoint);
   }
 
-  getPublicFigure(id: number): Observable<PublicFigure[]> {
+  getPublicFigure(id: number): Observable<any> {
     const endpoint = this.apiUrl + '/search/getPF?id=' + id;
-    return this.http.get<PublicFigure[]>(endpoint);
+    return this.http.get(endpoint);
   }
 }

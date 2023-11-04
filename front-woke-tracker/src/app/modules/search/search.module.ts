@@ -9,13 +9,15 @@ import { ResultSearchComponent } from './result-search/result-search.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { SearchCategoryPipe } from 'src/app/reference/pipes/search-category.pipe';
 import { NewsRelatedComponent } from './news-related/news-related.component';
+import { WokeValuesPipe } from 'src/app/reference/pipes/woke-values.pipe';
 
 @NgModule({
   declarations: [
     SearchComponent,    
     MainComponent, 
     ResultSearchComponent,
-    SearchCategoryPipe,
+    SearchCategoryPipe,    
+    WokeValuesPipe,
     NewsRelatedComponent
   ],
   imports: [
@@ -24,7 +26,7 @@ import { NewsRelatedComponent } from './news-related/news-related.component';
     AgGridModule,
     FormsModule,
     SearchRoutingModule
-  ],  
+  ],    
   exports: [SearchComponent]
 })
 export class SearchModule { }
