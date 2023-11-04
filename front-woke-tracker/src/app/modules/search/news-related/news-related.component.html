@@ -10,8 +10,7 @@
       <pre>Connections:</pre>
       <ul>
         <li *ngFor="let connection of data.connections">{{ connection.name }}      
-          <button mat-button color="primary" (click)="listNewsRelated(connection)">See more...</button>
-    
+          <button mat-button color="primary" (click)="listNewsRelated(connection)">See more...</button>    
         </li>
       </ul>  
     </div>
@@ -19,11 +18,21 @@
 
   <div class="right-content">
     <pre>Links Related</pre>  
-    <ul>
-      <li *ngFor="let link of safeUrls">
-        <a [href]="link" target="_blank">{{ link }}</a>
-      </li>
-    </ul>
+    <div *ngIf="safeUrls.length > 0">      
+      <ul>
+        <li *ngFor="let link of safeUrls">
+          <a [href]="link" target="_blank">{{ link }}</a>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="safeUrls.length === 0">
+        
+      <ul>
+        <li>
+          No links...
+        </li>
+      </ul>
+    </div>
   
   </div>
 </div>
