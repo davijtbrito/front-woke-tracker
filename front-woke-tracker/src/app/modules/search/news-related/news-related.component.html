@@ -8,6 +8,8 @@
   <pre>Connections:</pre>
   <ul>
     <li *ngFor="let connection of data.connections">{{ connection.name }}      
+      <button mat-button color="primary" (click)="listNewsRelated(connection)">See more...</button>
+
     </li>
   </ul>  
 </div>

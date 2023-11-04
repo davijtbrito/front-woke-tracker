@@ -11,6 +11,10 @@ import { SearchCategoryPipe } from 'src/app/reference/pipes/search-category.pipe
 import { NewsRelatedComponent } from './news-related/news-related.component';
 import { WokeValuesPipe } from 'src/app/reference/pipes/woke-values.pipe';
 
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
+
 @NgModule({
   declarations: [
     SearchComponent,    
@@ -24,6 +28,9 @@ import { WokeValuesPipe } from 'src/app/reference/pipes/woke-values.pipe';
     CommonModule,
     CommonModule,
     AgGridModule,
+    MatIconModule,
+    MatDividerModule,
+    MatButtonModule,
     FormsModule,
     SearchRoutingModule
   ],    
