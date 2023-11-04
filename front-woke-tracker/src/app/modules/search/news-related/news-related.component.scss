@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+  }
+  
+  .left-content {
+    flex: 0 0 35%;
+    /* You can adjust the width (35%) as needed */
+    background-color: #f2f2f2; /* Optional background color for left content */
+    padding: 10px; /* Optional padding for left content */
+  }
+  
+  .right-content {
+    flex: 1;
+    /* The right content will take up the remaining space (65%) */
+    background-color: #e0e0e0; /* Optional background color for right content */
+    padding: 10px; /* Optional padding for right content */
+  }
+  
