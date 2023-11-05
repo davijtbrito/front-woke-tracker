@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { SharedDataService } from 'src/app/services/shared-data.service';
 
 
 @Component({
@@ -8,11 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-
-
+  
   searchKeyword!: string;  
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+    private sharedApi: SharedDataService) {}
 
   ngOnInit(): void {
     this.searchKeyword = '';
@@ -20,7 +21,8 @@ export class MainComponent {
 
   navigateToComponent() {    
     if (!this.isNullOrBlank(this.searchKeyword)){
-      this.router.navigate(['search/result-search/' + this.searchKeyword]);
+      this.sharedApi.searchKeyword = this.searchKeyword;
+      this.router.navigate(['search/result-search']);
     }    
   }
 
