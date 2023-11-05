@@ -1,6 +1,7 @@
 <div class="container">
   <div class="left-content">
     <pre>Country: {{ data.detail.country }}</pre>  
+    <br>
     <pre>Tags</pre>
     <ul>
       <li *ngFor="let value of data.values">{{ value | wokeValues }}</li>
@@ -18,23 +19,15 @@
 
   <div class="right-content">
     <pre>Links Related</pre>  
-    <div *ngIf="safeUrls.length > 0">      
-      <ul>
-        <li *ngFor="let link of safeUrls">
-          <a [href]="link" target="_blank">{{ link }}</a>
-        </li>
-      </ul>
-    </div>
-    <div *ngIf="safeUrls.length === 0">
-        
-      <ul>
-        <li>
-          No links...
-        </li>
-      </ul>
-    </div>
-  
+    <ag-grid-angular #agGrid
+      style="width: 100%; height: 500px;"
+        class="ag-theme-alpine"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+        [rowData]="safeUrls"                    
+    ></ag-grid-angular>      
   </div>
+
 </div>
 
 

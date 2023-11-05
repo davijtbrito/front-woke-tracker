@@ -59,7 +59,7 @@ export class ResultSearchComponent {
     if (!this.isNullOrBlank(this.searchKeyword)) {
       this.searchApi.searchByKeyword(this.searchKeyword).subscribe(data => {
         this.searchResults = data;
-        this.agGrid.api.setRowData(this.searchResults); // Update ag-Grid data
+        this.agGrid.api.setRowData(this.searchResults); // Update ag-Grid data        
         this.agGrid.api.refreshCells(); // Refresh the ag-Grid cells
       });
     }
