@@ -5,11 +5,9 @@ import { MainComponent } from './main/main.component';
 import { ResultSearchComponent } from './result-search/result-search.component';
 import { NewsRelatedComponent } from './news-related/news-related.component';
 
-const routes: Routes = [
-  { path: '', component: SearchComponent, children: [
-    { path: 'news-related', component: NewsRelatedComponent },
-    { path: 'result-search', component: ResultSearchComponent }
-  ]},    
+const routes: Routes = [  
+  { path: 'news-related', component: NewsRelatedComponent },
+  { path: 'result-search', component: ResultSearchComponent }  
 ];
 
 @NgModule({
