@@ -14,6 +14,10 @@ import { WokeValuesPipe } from 'src/app/reference/pipes/woke-values.pipe';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
+
 
 @NgModule({
   declarations: [
@@ -31,6 +35,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatIconModule,
     MatDividerModule,
     MatButtonModule,
+    MatChipsModule,
+    MatTooltipModule,
     FormsModule,
     SearchRoutingModule
   ],    
