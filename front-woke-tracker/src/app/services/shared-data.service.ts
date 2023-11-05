@@ -10,4 +10,5 @@ export class SharedDataService {
     newsRelatedEntity!: GenericEntityDto;
     newsRelatedConnection!: GenericEntityDto;
     searchDetail!: SearchDetail;
+    searchKeyword: string | undefined;
 }

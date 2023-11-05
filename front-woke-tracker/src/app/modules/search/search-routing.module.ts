@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', component: SearchComponent },
   { path: 'main', component: MainComponent },
   { path: 'news-related', component: NewsRelatedComponent },
-  { path: 'result-search/:keyword', component: ResultSearchComponent }
+  { path: 'result-search', component: ResultSearchComponent }
 
 ];
 

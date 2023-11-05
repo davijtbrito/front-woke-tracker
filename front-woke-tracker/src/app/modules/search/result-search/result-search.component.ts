@@ -33,19 +33,16 @@ export class ResultSearchComponent {
     { field: 'category', valueFormatter: (params) => this.categoryPipe.transform(params.value)}    
   ];
 
-  constructor(private searchApi: SearchApiService, 
-    private dialog: MatDialog, 
-    private route: ActivatedRoute,
+  constructor(private searchApi: SearchApiService,         
     private sharedData: SharedDataService,
     private router: Router,    
     private categoryPipe: SearchCategoryPipe) { }
 
   ngOnInit(): void {
-    const paramName = 'keyword';
-    const paramMap = this.route.snapshot.paramMap;
+    const paramName = 'keyword';    
 
-    if (paramMap.has(paramName)) {
-      this.searchKeyword = paramMap.get(paramName)!;
+    if (this.sharedData.searchKeyword !== undefined) {
+      this.searchKeyword = this.sharedData.searchKeyword!;
       this.search();
 
     } else {

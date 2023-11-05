@@ -4,8 +4,7 @@ import { NewsRelatedService } from '../../../services/news-related.service';
 import { SearchDetail } from 'src/app/reference/models/search-detail.model';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 import { GenericEntityDto } from 'src/app/reference/models/generic-entity-dto.model';
-import { ColDef, GridReadyEvent } from 'ag-grid-community';
-import { Observable } from 'rxjs';
+import { ColDef, GridOptions } from 'ag-grid-community';
 import { UrlList } from 'src/app/reference/models/url-list.model';
 import { AgGridAngular } from 'ag-grid-angular';
 
@@ -22,14 +21,11 @@ export class NewsRelatedComponent {
   @ViewChild('agGrid')
   agGrid!: AgGridAngular;
 
-  public columnDefs: ColDef[] = [
-    { field: "url"}    
-  ];
-
-  public defaultColDef: ColDef = {    
-    filter: true,
-    width: 150
-  };
+  gridOptions: GridOptions = {
+    columnDefs: [
+      { field: "url", filter: true}    
+    ]
+  }  
 
   constructor(private newsApi: NewsRelatedService,
     private sharedApi: SharedDataService){
@@ -44,13 +40,13 @@ export class NewsRelatedComponent {
     };
 
     this.sharedApi.newsRelatedConnection = connection;
+    this.safeUrls = [];
     this.newsApi.getNewsRelated(this.sharedApi).subscribe((response => {
-      response.forEach(r => {
+      response.forEach(r => {        
         this.safeUrls.push({ url: r });
         this.agGrid.api.setRowData(this.safeUrls);
         this.agGrid.api.sizeColumnsToFit();
-        this.agGrid.api.refreshCells();
-        console.log("safeurls: " + JSON.stringify(this.safeUrls));
+        this.agGrid.api.refreshCells();        
       });
     }));
   }
