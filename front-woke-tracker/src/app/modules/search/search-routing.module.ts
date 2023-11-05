@@ -6,11 +6,10 @@ import { ResultSearchComponent } from './result-search/result-search.component';
 import { NewsRelatedComponent } from './news-related/news-related.component';
 
 const routes: Routes = [
-  { path: '', component: SearchComponent },
-  { path: 'main', component: MainComponent },
-  { path: 'news-related', component: NewsRelatedComponent },
-  { path: 'result-search', component: ResultSearchComponent }
-
+  { path: '', component: SearchComponent, children: [
+    { path: 'news-related', component: NewsRelatedComponent },
+    { path: 'result-search', component: ResultSearchComponent }
+  ]},    
 ];
 
 @NgModule({
