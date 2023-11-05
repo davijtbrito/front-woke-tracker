@@ -1,0 +1,36 @@
+<div class="container">
+  
+  <div class="left-content">
+    <pre>Country: {{ data.detail.country }}</pre>  
+    <br>
+    <pre>Tags</pre>
+    <ul>
+      <li *ngFor="let value of data.values">{{ value | wokeValues }}</li>
+    </ul>  
+    
+    <div *ngIf="data.connections.length > 0">
+      <pre>Connections:</pre>
+      <ul>
+        <li *ngFor="let connection of data.connections">{{ connection.name }}      
+          <button mat-button color="primary" (click)="listNewsRelated(connection)">See more...</button>    
+        </li>
+      </ul>  
+    </div>
+  </div>
+
+  <div class="right-content">
+    <pre>Links Related</pre>  
+    <ag-grid-angular #agGrid
+      style="width: 100%; height: 500px;"
+        class="ag-theme-alpine"
+        [gridOptions]="gridOptions"
+        [rowData]="safeUrls"                    
+    ></ag-grid-angular>      
+  </div>
+
+</div>
+
+
+
+
+  

@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+  }
+  
+  .left-content {
+    flex: 0 0 35%;
+    background-color: #f2f2f2;
+    padding: 20px; /* Add padding for spacing within the left content */
+    border-right: 1px solid #ccc; /* Add a border to separate left and right content */
+    overflow: auto; /* Add scrollbars if the content overflows the container */
+  }
+  
+  .right-content {
+    flex: 1;
+    /* The right content will take up the remaining space (65%) */
+    background-color: #e0e0e0; /* Optional background color for right content */
+    padding: 10px; /* Optional padding for right content */
+  }
+  
+  pre {
+    font-family: 'Courier New', monospace;
+    white-space: pre-wrap; /* Preserve line breaks */
+    margin: 0;
+  }
+  
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 20px;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }

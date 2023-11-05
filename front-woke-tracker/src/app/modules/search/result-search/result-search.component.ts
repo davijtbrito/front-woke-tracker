@@ -3,14 +3,15 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ColDef } from 'ag-grid-community';
 
 import { AgGridAngular } from 'ag-grid-angular';
-import { SimplePopupComponent } from 'src/app/layout/simple-popup/simple-popup.component';
 import { MatDialog } from '@angular/material/dialog';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SearchResult } from '../../../reference/models/search-result.model';
-import { SearchApi } from '../../services/search-api.service';
+import { SearchApiService } from '../../../services/search-api.service';
 import { SearchCategory } from '../../../reference/enums/search-category.enum';
 import { SearchCategoryPipe } from 'src/app/reference/pipes/search-category.pipe';
+import { SharedDataService } from 'src/app/services/shared-data.service';
+import { SearchDetail } from 'src/app/reference/models/search-detail.model';
 
 @Component({
   selector: 'app-result-search',
@@ -32,17 +33,16 @@ export class ResultSearchComponent {
     { field: 'category', valueFormatter: (params) => this.categoryPipe.transform(params.value)}    
   ];
 
-  constructor(private searchApi: SearchApi, 
-    private dialog: MatDialog, 
-    private route: ActivatedRoute,
+  constructor(private searchApi: SearchApiService,         
+    private sharedData: SharedDataService,
+    private router: Router,    
     private categoryPipe: SearchCategoryPipe) { }
 
   ngOnInit(): void {
-    const paramName = 'keyword';
-    const paramMap = this.route.snapshot.paramMap;
+    const paramName = 'keyword';    
 
-    if (paramMap.has(paramName)) {
-      this.searchKeyword = paramMap.get(paramName)!;
+    if (this.sharedData.searchKeyword !== undefined) {
+      this.searchKeyword = this.sharedData.searchKeyword!;
       this.search();
 
     } else {
@@ -56,7 +56,7 @@ export class ResultSearchComponent {
     if (!this.isNullOrBlank(this.searchKeyword)) {
       this.searchApi.searchByKeyword(this.searchKeyword).subscribe(data => {
         this.searchResults = data;
-        this.agGrid.api.setRowData(this.searchResults); // Update ag-Grid data
+        this.agGrid.api.setRowData(this.searchResults); // Update ag-Grid data        
         this.agGrid.api.refreshCells(); // Refresh the ag-Grid cells
       });
     }
@@ -69,33 +69,26 @@ export class ResultSearchComponent {
 
         this.searchApi.getCompany(event.data.id).subscribe(data => {
 
-          const dialogRef = this.dialog.open(SimplePopupComponent, {
-            width: '400px', // Set the desired width
-            data: data
-          });
-
+          this.sharedData.searchDetail = <SearchDetail> data;
+          this.router.navigate(["/news-related"]);
         });
 
       }else if (event.data.category === SearchCategory.INSTITUTION) {
 
         this.searchApi.getInstitution(event.data.id).subscribe(data => {
 
-          const dialogRef = this.dialog.open(SimplePopupComponent, {
-            width: '400px', // Set the desired width
-            data: data
-          });
-
+          this.sharedData.searchDetail = <SearchDetail> data;
+          this.router.navigate(["/news-related"]);
         });
+
       }else if (event.data.category === SearchCategory.PUBLIC_FIGURE) {
 
-        this.searchApi.getPublicFigure(event.data.id).subscribe(data => {
-
-          const dialogRef = this.dialog.open(SimplePopupComponent, {
-            width: '400px', // Set the desired width
-            data: data
-          });
-
+        this.searchApi.getPublicFigure(event.data.id).subscribe(data => {          
+                    
+          this.sharedData.searchDetail = <SearchDetail> data;
+          this.router.navigate(["/news-related"]);
         });
+
       }
     }
   }
