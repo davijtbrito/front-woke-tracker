@@ -7,20 +7,22 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
-    HeaderComponent,
-    FooterComponent
+    HeaderComponent,    
+    FooterComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
-    MatDialogModule,
+    MatDialogModule,    
     MatIconModule,
     MatChipsModule,
     MatButtonModule,    
     MatDividerModule,
     CommonModule
   ],
-  exports: [HeaderComponent, FooterComponent]
+  exports: [HeaderComponent, FooterComponent, ConfirmationDialogComponent]
 })
 export class LayoutModule { }
