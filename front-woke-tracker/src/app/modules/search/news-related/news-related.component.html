@@ -1,20 +1,24 @@
 <div class="container">
   
   <div class="left-content">
-    <pre>Country: {{ data.detail.country }}</pre>  
-    <br>
-    <pre>Tags</pre>
-    <ul>
-      <li *ngFor="let value of data.values">{{ value | wokeValues }}</li>
-    </ul>  
-    
-    <div *ngIf="data.connections.length > 0">
-      <pre>Connections:</pre>
-      <ul>
-        <li *ngFor="let connection of data.connections">{{ connection.name }}      
-          <button mat-button color="primary" (click)="listNewsRelated(connection)">See more...</button>    
-        </li>
-      </ul>  
+    <div class="mat-chip-set-container">
+      <pre>Name: {{ data.detail.name }}</pre>  
+      <pre>Type: {{ data.category | searchCategory }}</pre>      
+    </div>        
+
+    <div class="mat-chip-set-container" *ngIf="data.values.length > 0">
+      <strong>Woke Values</strong>
+      <mat-chip-set role="list">
+        <mat-chip *ngFor="let value of data.values" matTooltip="{{ valueTooltip(value) }}" role="listitem">{{ value | wokeValues }}</mat-chip>      
+      </mat-chip-set>
+    </div>
+        
+    <div *ngIf="data.connections.length > 0" class="mat-chip-set-container"> 
+      <strong>Connections</strong>
+      <mat-chip-listbox>        
+        <mat-chip-option matTooltip="Click to list the links related" *ngFor="let connection of data.connections" color="accent" 
+         (selectionChange)="listNewsRelated($event, connection)">{{ connection.name }}</mat-chip-option>        
+      </mat-chip-listbox>                 
     </div>
   </div>
 
@@ -24,7 +28,8 @@
       style="width: 100%; height: 500px;"
         class="ag-theme-alpine"
         [gridOptions]="gridOptions"
-        [rowData]="safeUrls"                    
+        [rowData]="safeUrls"       
+        (cellClicked)="getSelectedNode($event)"              
     ></ag-grid-angular>      
   </div>
 
