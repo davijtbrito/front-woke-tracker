@@ -11,6 +11,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from 'src/app/layout/confirmation-dialog/confirmation-dialog.component';
 import { ConfirmationDialogData } from 'src/app/layout/models/confirmation-dialog-data.model';
 import { MatChipSelectionChange } from '@angular/material/chips';
+import { WokeValues } from 'src/app/reference/enums/woke-values.enum';
+import { WokeValuesTooltipService } from 'src/app/services/woke-values-tooltip.service';
 
 @Component({
   selector: 'app-news-related',
@@ -34,7 +36,9 @@ export class NewsRelatedComponent {
 
   constructor(private newsApi: NewsRelatedService,
     public dialog: MatDialog,
-    private sharedApi: SharedDataService){
+    private sharedApi: SharedDataService,
+    private tooltipApi: WokeValuesTooltipService){
+
       this.data = this.sharedApi.searchDetail;      
   }
 
@@ -77,6 +81,10 @@ export class NewsRelatedComponent {
           window.open(cellValue, "_blank");   
         }
       });      
-    }    
+    }          
+  }
+
+  valueTooltip(wokeValue: WokeValues): string{    
+    return this.tooltipApi.tooltipByWokeValue(wokeValue);
   }
 }

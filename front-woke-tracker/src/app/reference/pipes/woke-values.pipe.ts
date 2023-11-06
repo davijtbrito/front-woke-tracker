@@ -9,7 +9,7 @@ export class WokeValuesPipe implements PipeTransform{
 
         switch (value) {
             case WokeValues.ANTI_FAMILY:
-                return "Anti Family Values";
+                return "Anti Family";
 
             case WokeValues.FEMINISM:
                 return "Feminism";    
@@ -21,10 +21,10 @@ export class WokeValuesPipe implements PipeTransform{
                 return "Gender Ideology";
 
             case WokeValues.HATE_COUNTRY:
-                return "Anti Patriotic Values";
+                return "Anti Patriotic";
 
             case WokeValues.HATE_GOD:
-                return "Anti Religious Values";
+                return "Anti Religious";
 
             case WokeValues.RACE_HUSTLER:
                 return "Race Hustler";
