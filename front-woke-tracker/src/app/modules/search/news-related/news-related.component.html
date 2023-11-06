@@ -17,7 +17,8 @@
     <div *ngIf="data.connections.length > 0" class="mat-chip-set-container"> 
       <strong>Connections</strong>
       <mat-chip-listbox>        
-        <mat-chip-option matTooltip="Click to list the links related" *ngFor="let connection of data.connections" color="accent" (click)="listNewsRelated(connection)">{{ connection.name }}</mat-chip-option>        
+        <mat-chip-option matTooltip="Click to list the links related" *ngFor="let connection of data.connections" color="accent" 
+         (selectionChange)="listNewsRelated($event, connection)">{{ connection.name }}</mat-chip-option>        
       </mat-chip-listbox>                 
     </div>
   </div>

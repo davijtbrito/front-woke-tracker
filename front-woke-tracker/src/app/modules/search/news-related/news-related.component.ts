@@ -10,6 +10,7 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from 'src/app/layout/confirmation-dialog/confirmation-dialog.component';
 import { ConfirmationDialogData } from 'src/app/layout/models/confirmation-dialog-data.model';
+import { MatChipSelectionChange } from '@angular/material/chips';
 
 @Component({
   selector: 'app-news-related',
@@ -37,23 +38,27 @@ export class NewsRelatedComponent {
       this.data = this.sharedApi.searchDetail;      
   }
 
-  listNewsRelated(connection: GenericEntityDto){
-    this.sharedApi.newsRelatedEntity = {
-      id: this.data.detail.id,
-      category: this.data.category,
-      name: ""
-    };
-
-    this.sharedApi.newsRelatedConnection = connection;
+  listNewsRelated(event: MatChipSelectionChange, connection: GenericEntityDto){    
+    
     this.safeUrls = [];
-    this.newsApi.getNewsRelated(this.sharedApi).subscribe((response => {
-      response.forEach(r => {        
-        this.safeUrls.push({ url: r });
-        this.agGrid.api.setRowData(this.safeUrls);
-        this.agGrid.api.sizeColumnsToFit();
-        this.agGrid.api.refreshCells();        
-      });
-    }));
+
+    if (event.selected){
+      this.sharedApi.newsRelatedEntity = {
+        id: this.data.detail.id,
+        category: this.data.category,
+        name: ""
+      };
+  
+      this.sharedApi.newsRelatedConnection = connection;      
+      this.newsApi.getNewsRelated(this.sharedApi).subscribe((response => {
+        response.forEach(r => {        
+          this.safeUrls.push({ url: r });
+          this.agGrid.api.setRowData(this.safeUrls);
+          this.agGrid.api.sizeColumnsToFit();
+          this.agGrid.api.refreshCells();        
+        });
+      }));
+    }    
   }
 
   getSelectedNode(params: any){
