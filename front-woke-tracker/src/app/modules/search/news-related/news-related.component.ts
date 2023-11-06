@@ -7,6 +7,9 @@ import { GenericEntityDto } from 'src/app/reference/models/generic-entity-dto.mo
 import { ColDef, GridOptions } from 'ag-grid-community';
 import { UrlList } from 'src/app/reference/models/url-list.model';
 import { AgGridAngular } from 'ag-grid-angular';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from 'src/app/layout/confirmation-dialog/confirmation-dialog.component';
+import { ConfirmationDialogData } from 'src/app/layout/models/confirmation-dialog-data.model';
 
 @Component({
   selector: 'app-news-related',
@@ -29,6 +32,7 @@ export class NewsRelatedComponent {
   }  
 
   constructor(private newsApi: NewsRelatedService,
+    public dialog: MatDialog,
     private sharedApi: SharedDataService){
       this.data = this.sharedApi.searchDetail;      
   }
@@ -54,9 +58,20 @@ export class NewsRelatedComponent {
 
   getSelectedNode(params: any){
     if (params.column && params.data){
-      const cellValue = params.data[params.column.getColId()];
-      window.open(cellValue, "_blank");      
-    }
-    
+      const confParams: ConfirmationDialogData = {
+        message: "Do you want to open the selected link?",
+        title: "Confirmation",
+        acceptStr: "accept"
+      };
+
+      const dialogRef = this.dialog.open(ConfirmationDialogComponent, {data: confParams});
+
+      dialogRef.afterClosed().subscribe((confirmation: string) => {                
+        if (confirmation === confParams.acceptStr){        
+          const cellValue = params.data[params.column.getColId()];
+          window.open(cellValue, "_blank");   
+        }
+      });      
+    }    
   }
 }
