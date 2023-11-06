@@ -20,6 +20,7 @@ export class NewsRelatedComponent {
 
   @ViewChild('agGrid')
   agGrid!: AgGridAngular;
+  
 
   gridOptions: GridOptions = {
     columnDefs: [
@@ -49,5 +50,13 @@ export class NewsRelatedComponent {
         this.agGrid.api.refreshCells();        
       });
     }));
+  }
+
+  getSelectedNode(params: any){
+    if (params.column && params.data){
+      const cellValue = params.data[params.column.getColId()];
+      window.open(cellValue, "_blank");      
+    }
+    
   }
 }
